@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">一线招聘企业版</string>
+    <string name="registe_new_user">用户注册</string>
+    <string name="get_sms_code">获取验证码</string>
+    <string name="smscode_second">%s秒后重发</string>
+    <string name="sms_code_send_success">验证码发送成功</string>
+    <string name="about_me">关于我们</string>
+    <string name="user_agreement">用户协议</string>
+    <string name="forgot_password">忘记密码</string>
+    <string name="help_and_setting">帮助与设置</string>
+    <string name="help_des">帮助说明</string>
+    <string name="modify_password">修改密码</string>
+    <string name="feed_back">意见反馈</string>
+    <string name="enterprise_info">企业资料</string>
+    <string name="select_map_address">选择地址</string>
+    <string name="select_industry">选择行业</string>
+    <string name="change_bind_phone">换绑手机</string>
+    <string name="enterprise_detail">企业详情</string>
+    <string name="my_follow">我的关注</string>
+    <string name="send_job">岗位发布</string>
+    <string name="job_info_detail">职位详情</string>
+    <string name="refresh_job">岗位刷新</string>
+    <string name="resume_delivery_state">投递情况</string>
+    <string name="confirm_order">支付信息</string>
+    <string name="resume_detail">简历详情</string>
+    <string name="banner_url">外链</string>
+    <string name="my_order">我的订单</string>
+    <string name="resume_manage">简历管理</string>
+    <string name="shield_resume">屏蔽简历</string>
+    <string name="push_msg">消息中心</string>
+    <string name="my_account">我的账户</string>
+    <string name="buy_money">余额充值</string>
+    <string name="banlance_detail">交易明细</string>
+    <string name="bill_detail">记录明细</string>
+    <string name="alread_buy_resume_list">订单简历</string>
+</resources>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bg_gray"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_title_layout"/>
+
+    <com.sookcs.zhaopin.view.MyScrollView
+        android:id="@+id/myScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="企业头像"
+                        android:textColor="@color/weight_text_color"
+                        android:textSize="@dimen/common_more_text_size"/>
+
+                    <com.sookcs.zhaopin.view.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/civHeadPic"
+                        android:layout_width="77dp"
+                        android:layout_height="77dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/icon_default_enterprise"
+                        app:border_color="@color/white"
+                        app:border_width="1dp"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_999999"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="企业名称"
+                        android:textColor="@color/weight_text_color"
+                        android:textSize="@dimen/common_more_text_size"/>
+
+                    <EditText
+                        android:id="@+id/etEnterpriseName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="请输入企业全称"
+                        android:maxLength="15"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/common_text_size"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_999999"/>
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sLeftTextColor="@color/weight_text_color"
+                    stv:sLeftTextSize="@dimen/common_more_text_size"
+                    stv:sLeftTextString="换绑手机"
+                    stv:sRightIconHeight="20dp"
+                    stv:sRightIconRes="@mipmap/icon_jiantou"
+                    stv:sRightIconWidth="20dp"
+                    stv:sRightMaxEms="20"
+                    stv:sRightTextColor="@color/secondary_text_color"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="13888888888"
+                    />
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvTheIndustry"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sLeftTextColor="@color/weight_text_color"
+                    stv:sLeftTextSize="@dimen/common_more_text_size"
+                    stv:sLeftTextString="所属行业"
+                    stv:sRightIconHeight="20dp"
+                    stv:sRightIconRes="@mipmap/icon_jiantou"
+                    stv:sRightIconWidth="20dp"
+                    stv:sRightMaxEms="20"
+                    stv:sRightTextColor="@color/secondary_text_color"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="请选择企业所属行业"
+                    stv:sRightViewGravity="right_center"
+                    />
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvTheAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sLeftTextColor="@color/weight_text_color"
+                    stv:sLeftTextSize="@dimen/common_more_text_size"
+                    stv:sLeftTextString="企业地址"
+                    stv:sRightIconHeight="20dp"
+                    stv:sRightIconRes="@mipmap/icon_jiantou"
+                    stv:sRightIconWidth="20dp"
+                    stv:sRightMaxEms="20"
+                    stv:sRightTextColor="@color/secondary_text_color"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="企业所在地址"
+                    stv:sRightViewGravity="right_center"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="15dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="详细地址"
+                        android:textColor="@color/weight_text_color"
+                        android:textSize="@dimen/common_more_text_size"/>
+
+                    <EditText
+                        android:id="@+id/etDetailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@null"
+                        android:gravity="left"
+                        android:hint="请输入企业详细地址"
+                        android:maxLines="2"
+                        android:textColor="@color/gray"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/common_text_size"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_999999"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="企业规模"
+                        android:textColor="@color/weight_text_color"
+                        android:textSize="@dimen/common_more_text_size"/>
+
+                    <RelativeLayout
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/shape_radius_5dp_half_gray_bg">
+
+                        <TextView
+                            android:id="@+id/tvEnterprisePersonCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:singleLine="true"
+                            android:text="1-50人"
+                            android:textColor="@color/common_text_color"
+                            android:textSize="@dimen/common_text_size"/>
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="10dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/icon_jiantou_down"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_999999"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="联系人"
+                        android:textColor="@color/weight_text_color"
+                        android:textSize="@dimen/common_more_text_size"/>
+
+                    <EditText
+                        android:id="@+id/etContactName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="请输入联系人姓名"
+                        android:maxLength="15"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/common_text_size"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_999999"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="联系电话"
+                        android:textColor="@color/weight_text_color"
+                        android:textSize="@dimen/common_more_text_size"/>
+
+                    <EditText
+                        android:id="@+id/etContactPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="请输入联系电话"
+                        android:inputType="number"
+                        android:maxLength="15"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textCursorDrawable="@null"
+                        android:textSize="@dimen/common_text_size"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/gray_999999"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:singleLine="true"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/common_text_size"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:singleLine="true"
+                    android:text="上传企业营业执照(必填)"
+                    android:textColor="@color/weight_text_color"
+                    android:textSize="@dimen/common_text_size"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivEnterpriseLicense"
+                android:layout_width="200dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:src="@mipmap/img_take_photo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:text="主营业务"
+                android:textColor="@color/weight_text_color"
+                android:textSize="@dimen/common_text_size"/>
+
+            <EditText
+                android:id="@+id/etEnterpriseBusiness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_radius_5dp_white_bg"
+                android:gravity="top|left"
+                android:hint="请输入企业主营业务(不大于35个字符)"
+                android:maxLength="35"
+                android:minLines="8"
+                android:padding="5dip"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/secondary_text_size"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"
+                android:text="企业简介"
+                android:textColor="@color/weight_text_color"
+                android:textSize="@dimen/common_text_size"/>
+
+            <EditText
+                android:id="@+id/etEnterpriseIntroduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_radius_5dp_white_bg"
+                android:gravity="top|left"
+                android:hint="请输入企业简介(不少于50个字符)\r\n例:\r\n1.公司成立时间;\r\n2.公司规模;\r\n3.主营业务;\r\n..."
+                android:minLines="8"
+                android:padding="5dip"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/secondary_text_size"/>
+        </LinearLayout>
+    </com.sookcs.zhaopin.view.MyScrollView>
+</LinearLayout>

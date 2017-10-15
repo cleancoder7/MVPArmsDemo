@@ -1,0 +1,47 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="home_viewpager_hegiht">180dp</dimen>
+    <dimen name="common_title_height">45dp</dimen>
+    <dimen name="common_module_space">10dp</dimen>
+    <dimen name="common_title_left_margin">10dp</dimen>
+    <dimen name="common_title_menu_margin">20dp</dimen>
+    <dimen name="common_title_padding">10dp</dimen>
+    <dimen name="common_title_right_margin">15dp</dimen>
+    <dimen name="common_title_btn_left_right_padding">10dp</dimen>
+    <dimen name="common_title_btn_top_bottom_padding">6dp</dimen>
+    <dimen name="common_title_text_size">18sp</dimen>
+    <dimen name="common_title_btn_text_size">16sp</dimen>
+    <dimen name="common_ldpi_text_size">12sp</dimen>
+    <dimen name="common_hdpi_text_size">13sp</dimen>
+    <dimen name="common_mdpi_text_size">14sp</dimen>
+    <dimen name="dialog_l_title_h">32.0dp</dimen>
+    <dimen name="dialog_tv_message_pt">18.0dp</dimen>
+    <dimen name="dialog_tv_message_plr">13.0dp</dimen>
+    <dimen name="common_logo_width">135dp</dimen>
+    <dimen name="popmenu_width">140dp</dimen>
+    <dimen name="contact_radius">5dp</dimen>
+    <dimen name="dialog_margin">20dp</dimen>
+    <dimen name="dialog_title_text_size">17sp</dimen>
+    <dimen name="dialog_context_text_size">17sp</dimen>
+    <dimen name="ug_button_submit_height">50.0dp</dimen>
+    <dimen name="comment_content_margin_bottom">8.0dp</dimen>
+    <dimen name="comment_content_margin_top">8.0dp</dimen>
+    <dimen name="comment_content_padding_left">14.0dp</dimen>
+    <dimen name="comment_content_padding_right">14.0dp</dimen>
+    <dimen name="product_basic_info_buy_btn_padding_left">16.0dp</dimen>
+    <dimen name="ul_button_land_height">45.0dp</dimen>
+    <dimen name="home_bottom_icon_height">23dp</dimen>
+    <dimen name="home_bottom_icon_margin">3dp</dimen>
+    <dimen name="bottom_text_size">12dp</dimen>
+    <dimen name="thrid_login_wh">45dp</dimen>
+    <dimen name="folder_icone_height">30dp</dimen>
+    <dimen name="folder_icone_width">30dp</dimen>
+    <dimen name="weight_super_text_size">22sp</dimen>
+    <dimen name="weight_text_size">18sp</dimen>
+    <dimen name="common_text_size">15sp</dimen>
+    <dimen name="common_more_text_size">16sp</dimen>
+    <dimen name="secondary_text_size">13sp</dimen>
+    <dimen name="medical_detail_time">30dp</dimen>
+</resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_title_layout"/>
+
+    <com.sookcs.zhaopin.view.MyScrollView
+        android:id="@+id/myScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.allen.library.SuperTextView
+                xmlns:stv="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sBackgroundDrawableRes="@color/transparent"
+                stv:sDividerLineColor="@color/gray_999999"
+                stv:sLeftTextColor="@color/common_text_color"
+                stv:sLeftTextSize="@dimen/common_more_text_size"
+                stv:sLeftTextString="支付信息"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvPayAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sDividerLineHeight="0dp"
+                    stv:sLeftTextColor="@color/common_text_color"
+                    stv:sLeftTextSize="@dimen/common_more_text_size"
+                    stv:sLeftTextString="付款金额"
+                    stv:sRightMaxEms="20"
+                    stv:sRightTextColor="@color/weight_text_color"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="$120"
+                    stv:sRightViewGravity="right_center"
+                    stv:sUseRipple="false"
+                    />
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvPayType"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sDividerLineHeight="0dp"
+                    stv:sLeftTextColor="@color/common_text_color"
+                    stv:sLeftTextSize="@dimen/common_more_text_size"
+                    stv:sLeftTextString="支付类型"
+                    stv:sRightMaxEms="20"
+                    stv:sRightTextColor="@color/weight_text_color"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="获取应聘者信息"
+                    stv:sRightViewGravity="right_center"
+                    stv:sUseRipple="false"
+                    />
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvRealPayAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sDividerLineType="top"
+                    stv:sLeftTextColor="@color/coral"
+                    stv:sLeftTextSize="@dimen/common_more_text_size"
+                    stv:sLeftTextString="应付金额"
+                    stv:sRightMaxEms="20"
+                    stv:sRightTextColor="@color/coral"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="$120"
+                    stv:sRightViewGravity="right_center"
+                    stv:sUseRipple="false"
+                    />
+            </LinearLayout>
+
+            <com.allen.library.SuperTextView
+                xmlns:stv="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                stv:sBackgroundDrawableRes="@color/transparent"
+                stv:sDividerLineColor="@color/gray_999999"
+                stv:sLeftTextColor="@color/common_text_color"
+                stv:sLeftTextSize="@dimen/common_more_text_size"
+                stv:sLeftTextString="请选择支付方式"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvBalancePay"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:visibility="gone"
+                    stv:sCenterSpaceHeight="5dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sLeftIconHeight="30dp"
+                    stv:sLeftIconRes="@mipmap/icon_balance"
+                    stv:sLeftIconWidth="30dp"
+                    stv:sLeftTopTextColor="@color/common_text_color"
+                    stv:sLeftTopTextSize="@dimen/common_text_size"
+                    stv:sLeftTopTextString="余额支付"
+                    stv:sLeftViewGravity="left_center"
+                    stv:sRightIconHeight="20dp"
+                    stv:sRightIconRes="@mipmap/icon_pay_checked"
+                    stv:sRightIconWidth="20dp"
+                    stv:sRightTextColor="@color/common_text_color"
+                    stv:sRightTextSize="@dimen/common_text_size"
+                    stv:sRightTextString="￥0"
+                    stv:sRightViewGravity="right_center"
+                    stv:sRightViewMarginRight="20dp"
+                    />
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvWXPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sCenterSpaceHeight="5dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sLeftIconHeight="30dp"
+                    stv:sLeftIconRes="@mipmap/icon_wxpay"
+                    stv:sLeftIconWidth="30dp"
+                    stv:sLeftTopTextColor="@color/common_text_color"
+                    stv:sLeftTopTextSize="@dimen/common_text_size"
+                    stv:sLeftTopTextString="微信支付"
+                    stv:sLeftViewGravity="left_center"
+                    stv:sRightIconHeight="20dp"
+                    stv:sRightIconRes="@mipmap/icon_pay_uncheck"
+                    stv:sRightIconWidth="20dp"
+                    stv:sRightViewGravity="right_center"
+                    stv:sRightViewMarginRight="20dp"
+                    />
+
+                <com.allen.library.SuperTextView
+                    xmlns:stv="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/stvAliPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    stv:sCenterSpaceHeight="5dp"
+                    stv:sDividerLineColor="@color/gray_999999"
+                    stv:sLeftIconHeight="30dp"
+                    stv:sLeftIconRes="@mipmap/icon_alipay"
+                    stv:sLeftIconWidth="30dp"
+                    stv:sLeftTopTextColor="@color/common_text_color"
+                    stv:sLeftTopTextSize="@dimen/common_text_size"
+                    stv:sLeftTopTextString="支付宝支付"
+                    stv:sLeftViewGravity="left_center"
+                    stv:sRightIconHeight="20dp"
+                    stv:sRightIconRes="@mipmap/icon_pay_uncheck"
+                    stv:sRightIconWidth="20dp"
+                    stv:sRightViewGravity="right_center"
+                    stv:sRightViewMarginRight="20dp"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/shape_radius_5dp_yellow_bg"
+                android:text="立即支付"
+                android:textColor="@color/black"
+                android:textSize="@dimen/common_text_size"/>
+        </LinearLayout>
+    </com.sookcs.zhaopin.view.MyScrollView>
+
+</LinearLayout>

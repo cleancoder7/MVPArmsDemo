@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_title_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvChangePassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/common_text_color"
+            stv:sLeftTextSize="@dimen/common_text_size"
+            stv:sLeftTextString="修改密码"
+            stv:sRightIconHeight="20dp"
+            stv:sRightIconRes="@mipmap/icon_jiantou"
+            stv:sRightIconWidth="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvAboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/common_text_color"
+            stv:sLeftTextSize="@dimen/common_text_size"
+            stv:sLeftTextString="关于我们"
+            stv:sRightIconHeight="20dp"
+            stv:sRightIconRes="@mipmap/icon_jiantou"
+            stv:sRightIconWidth="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvFeedBack"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/common_text_color"
+            stv:sLeftTextSize="@dimen/common_text_size"
+            stv:sLeftTextString="意见反馈"
+            stv:sRightIconHeight="20dp"
+            stv:sRightIconRes="@mipmap/icon_jiantou"
+            stv:sRightIconWidth="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvClearCache"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/common_text_color"
+            stv:sLeftTextSize="@dimen/common_text_size"
+            stv:sLeftTextString="清除缓存"
+            stv:sRightIconHeight="20dp"
+            stv:sRightIconRes="@mipmap/icon_jiantou"
+            stv:sRightIconWidth="20dp"
+            stv:sRightTextColor="@color/secondary_text_color"
+            stv:sRightTextSize="@dimen/common_text_size"
+            stv:sRightTextString="0 byte"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvHelpDes"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/common_text_color"
+            stv:sLeftTextSize="@dimen/common_text_size"
+            stv:sLeftTextString="帮助说明"
+            stv:sRightIconHeight="20dp"
+            stv:sRightIconRes="@mipmap/icon_jiantou"
+            stv:sRightIconWidth="20dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnExitLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_radius_5dp_deepblue_bg"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/common_text_size"/>
+
+</LinearLayout>

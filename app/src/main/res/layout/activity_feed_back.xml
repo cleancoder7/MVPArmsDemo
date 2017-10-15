@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_title_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:text="请填写您的意见或建议"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/common_text_size"/>
+
+        <EditText
+            android:id="@+id/etFeedBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_radius_5dp_white_bg"
+            android:gravity="top|left"
+            android:hint="您的满意是我们前进的动力!"
+            android:minLines="8"
+            android:padding="5dip"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/secondary_text_size">
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:text="请填写您的联系方式"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/common_text_size"/>
+
+        <EditText
+            android:id="@+id/etContactWay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_radius_5dp_white_bg"
+            android:gravity="top|left"
+            android:hint="选填,方便我们与您联系!"
+            android:minLines="3"
+            android:padding="5dip"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/secondary_text_size">
+        </EditText>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_radius_5dp_deepblue_bg"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/common_text_size"/>
+</LinearLayout>

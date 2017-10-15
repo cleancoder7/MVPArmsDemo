@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llTitleContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/common_title_height"
+        android:background="@color/deepblue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="个人中心"
+                android:textColor="@color/common_title_text_color"
+                android:textSize="@dimen/common_title_text_size"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--ProgressActivity用于状态页的控制 比如加载中  网络异常  无数据  适合任何页面-->
+    <com.sookcs.loadingandpullrefreshandtab.viewtype.ProgressActivity
+        xmlns:progressActivity="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--SpringView下拉刷新-->
+        <com.sookcs.loadingandpullrefreshandtab.widget.SpringView
+            android:id="@+id/springView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            >
+
+            <com.sookcs.zhaopin.view.MyScrollView
+                android:id="@+id/myScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_gray"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_gray"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="@mipmap/img_personal_center_bg"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical">
+
+                            <com.sookcs.zhaopin.view.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/civHeadPic"
+                                android:layout_width="77dp"
+                                android:layout_height="77dp"
+                                android:layout_gravity="center"
+                                android:src="@mipmap/icon_default_enterprise"
+                                app:border_color="@color/white"
+                                app:border_width="1dp"/>
+
+                            <TextView
+                                android:id="@+id/tvCompany"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:singleLine="true"
+                                android:text="一线招聘有限公司"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/common_text_size"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/ivAuthStatus"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="@mipmap/icon_personal_center_no_auth"/>
+
+                                <TextView
+                                    android:id="@+id/tvAuthStatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="5dp"
+                                    android:singleLine="true"
+                                    android:text="未认证"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/common_text_size"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvMyOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="@dimen/common_module_space"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="我的订单"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightIconHeight="20dp"
+                        stv:sRightIconRes="@mipmap/icon_jiantou"
+                        stv:sRightIconWidth="20dp"
+                        stv:sRightTextColor="@color/common_text_color"
+                        stv:sRightTextSize="@dimen/common_text_size"
+                        stv:sRightTextString="查看更多订单"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/llWaitPay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@mipmap/icon_wait_pay"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="待支付"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/llAlreadPay"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@mipmap/icon_alread_pay"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="已支付"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llAlreadDead"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@mipmap/icon_alread_dead"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center"
+                                android:text="已失效"
+                                android:textSize="13sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvMyAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="@dimen/common_module_space"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftBottomTextColor="@color/secondary_text_color"
+                        stv:sLeftBottomTextString="余额，消费记录"
+                        stv:sLeftIconHeight="30dp"
+                        stv:sLeftIconRes="@mipmap/icon_personal_center_my_amount"
+                        stv:sLeftIconWidth="30dp"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="我的账户"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightIconHeight="20dp"
+                        stv:sRightIconRes="@mipmap/icon_jiantou"
+                        stv:sRightIconWidth="20dp"
+                        stv:sRightMaxEms="30"
+                        stv:sRightTextColor="@color/common_text_color"
+                        stv:sRightTextSize="@dimen/common_text_size"
+                        stv:sRightTextString="￥0"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvMyFollow"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftBottomTextColor="@color/secondary_text_color"
+                        stv:sLeftBottomTextString="同行企业一键知晓"
+                        stv:sLeftIconHeight="30dp"
+                        stv:sLeftIconRes="@mipmap/icon_personal_center_my_follow"
+                        stv:sLeftIconWidth="30dp"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="我的关注"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightIconHeight="20dp"
+                        stv:sRightIconRes="@mipmap/icon_jiantou"
+                        stv:sRightIconWidth="20dp"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvJianLi"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftBottomTextColor="@color/secondary_text_color"
+                        stv:sLeftBottomTextString="投递给我的简历"
+                        stv:sLeftIconHeight="30dp"
+                        stv:sLeftIconRes="@mipmap/icon_personal_center_jianli"
+                        stv:sLeftIconWidth="30dp"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="简历管理"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightIconHeight="20dp"
+                        stv:sRightIconRes="@mipmap/icon_jiantou"
+                        stv:sRightIconWidth="20dp"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvMsgNotice"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="@dimen/common_module_space"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftBottomTextColor="@color/secondary_text_color"
+                        stv:sLeftBottomTextString="一键设置,随时知晓"
+                        stv:sLeftIconHeight="30dp"
+                        stv:sLeftIconRes="@mipmap/icon_personal_center_msg_notice"
+                        stv:sLeftIconWidth="30dp"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="消息通知"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightIconHeight="20dp"
+                        stv:sRightIconRes="@mipmap/icon_jiantou"
+                        stv:sRightIconWidth="20dp"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvSettingHelper"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftBottomTextColor="@color/secondary_text_color"
+                        stv:sLeftBottomTextString="修改,反馈,帮助"
+                        stv:sLeftIconHeight="30dp"
+                        stv:sLeftIconRes="@mipmap/icon_personal_center_setting_helper"
+                        stv:sLeftIconWidth="30dp"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="设置与帮助"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightIconHeight="20dp"
+                        stv:sRightIconRes="@mipmap/icon_jiantou"
+                        stv:sRightIconWidth="20dp"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                    <com.allen.library.SuperTextView
+                        xmlns:stv="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/stvPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        stv:sCenterSpaceHeight="5dp"
+                        stv:sDividerLineColor="@color/gray_999999"
+                        stv:sLeftBottomTextColor="@color/secondary_text_color"
+                        stv:sLeftBottomTextString="一键拨号,联系客服"
+                        stv:sLeftIconHeight="30dp"
+                        stv:sLeftIconRes="@mipmap/icon_personal_center_phone"
+                        stv:sLeftIconWidth="30dp"
+                        stv:sLeftTopTextColor="@color/common_text_color"
+                        stv:sLeftTopTextSize="@dimen/common_text_size"
+                        stv:sLeftTopTextString="客服电话"
+                        stv:sLeftViewGravity="left_center"
+                        stv:sRightTextColor="@color/common_text_color"
+                        stv:sRightTextSize="@dimen/common_text_size"
+                        stv:sRightViewGravity="right_center"
+                        />
+
+                </LinearLayout>
+            </com.sookcs.zhaopin.view.MyScrollView>
+        </com.sookcs.loadingandpullrefreshandtab.widget.SpringView>
+    </com.sookcs.loadingandpullrefreshandtab.viewtype.ProgressActivity>
+
+</LinearLayout>

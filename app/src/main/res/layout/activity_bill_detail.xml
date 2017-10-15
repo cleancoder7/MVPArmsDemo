@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include layout="@layout/common_title_layout"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/ivBillType"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_recharge_in"/>
+
+        <TextView
+            android:id="@+id/tvTypeDes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/ivBillType"
+            android:singleLine="true"
+            android:text="余额充值"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/common_text_size"/>
+
+        <LinearLayout
+            android:id="@+id/llLookResumeContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:singleLine="true"
+                android:text="查看简历"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/common_text_size"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/icon_jiantou"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_module_space"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvPayAmount"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/common_text_color"
+            stv:sLeftTextString="付款金额"
+            stv:sLeftViewMarginLeft="15dp"
+            stv:sRightTextColor="@color/common_text_color"
+            stv:sRightTextSize="@dimen/common_text_size"
+            stv:sRightTextString="￥0"
+            stv:sRightViewMarginRight="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvCurrentStatus"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/secondary_text_color"
+            stv:sLeftTextString="当前状态"
+            stv:sLeftViewMarginLeft="15dp"
+            stv:sRightTextColor="@color/secondary_text_color"
+            stv:sRightTextSize="@dimen/common_text_size"
+            stv:sRightTextString="支付成功"
+            stv:sRightViewMarginRight="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvPayTime"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/secondary_text_color"
+            stv:sLeftTextString="支付时间"
+            stv:sLeftViewMarginLeft="15dp"
+            stv:sRightTextColor="@color/secondary_text_color"
+            stv:sRightTextSize="@dimen/common_text_size"
+            stv:sRightTextString="2017-08-01 15:30:33"
+            stv:sRightViewMarginRight="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvPayType"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/secondary_text_color"
+            stv:sLeftTextString="支付类型"
+            stv:sLeftViewMarginLeft="15dp"
+            stv:sRightTextColor="@color/secondary_text_color"
+            stv:sRightTextSize="@dimen/common_text_size"
+            stv:sRightTextString="余额充值"
+            stv:sRightViewMarginRight="20dp"
+            />
+
+        <com.allen.library.SuperTextView
+            xmlns:stv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/stvOrderNum"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            stv:sDividerLineColor="@color/gray_999999"
+            stv:sLeftTextColor="@color/secondary_text_color"
+            stv:sLeftTextString="交易单号"
+            stv:sLeftViewMarginLeft="15dp"
+            stv:sRightTextColor="@color/secondary_text_color"
+            stv:sRightTextSize="@dimen/common_text_size"
+            stv:sRightTextString="20170813221555"
+            stv:sRightViewMarginRight="20dp"
+            />
+    </LinearLayout>
+</LinearLayout>

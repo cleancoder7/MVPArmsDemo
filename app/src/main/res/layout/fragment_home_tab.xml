@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llTitleContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/common_title_height"
+        android:background="@color/deepblue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="一线招聘"
+                android:textColor="@color/common_title_text_color"
+                android:textSize="@dimen/common_title_text_size"
+                />
+
+            <RelativeLayout
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp">
+
+                <ImageView
+                    android:id="@+id/ivPushMessage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:background="@mipmap/icon_push_message"/>
+
+                <TextView
+                    android:id="@+id/tvMsgNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/shape_over_radius_red_bg"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="1dp"
+                    android:singleLine="true"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--ProgressActivity用于状态页的控制 比如加载中  网络异常  无数据  适合任何页面-->
+    <com.sookcs.loadingandpullrefreshandtab.viewtype.ProgressActivity
+        xmlns:progressActivity="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <!--SpringView下拉刷新-->
+            <com.sookcs.loadingandpullrefreshandtab.widget.SpringView
+                android:id="@+id/springView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                >
+
+                <com.sookcs.zhaopin.view.MyScrollView
+                    android:id="@+id/myScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg_gray"
+                    android:fadingEdge="none"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <com.youth.banner.Banner
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:background="@color/white"
+                            app:image_scale_type="center_crop"
+                            app:indicator_drawable_selected="@drawable/shape_radius_5dp_deepblue_bg"
+                            app:indicator_drawable_unselected="@drawable/shape_radius_5dp_half_gray_bg"
+                            app:indicator_height="5dp"
+                            app:indicator_width="5dp"
+                            />
+
+                        <com.allen.library.SuperTextView
+                            xmlns:stv="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/stvMoreDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="@dimen/common_module_space"
+                            stv:sCenterSpaceHeight="5dp"
+                            stv:sDividerLineColor="@color/gray_999999"
+                            stv:sLeftIconHeight="25dp"
+                            stv:sLeftIconRes="@mipmap/icon_more_delivery"
+                            stv:sLeftIconWidth="25dp"
+                            stv:sLeftTopTextColor="@color/common_text_color"
+                            stv:sLeftTopTextSize="@dimen/common_text_size"
+                            stv:sLeftTopTextString="投递人员列表"
+                            stv:sLeftViewGravity="left_center"
+                            stv:sRightIconHeight="20dp"
+                            stv:sRightIconRes="@mipmap/icon_jiantou"
+                            stv:sRightIconWidth="20dp"
+                            stv:sRightTextColor="@color/secondary_text_color"
+                            stv:sRightTextSize="@dimen/common_text_size"
+                            stv:sRightTextString="更多"
+                            stv:sRightViewGravity="right_center"
+                            />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rvList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+                </com.sookcs.zhaopin.view.MyScrollView>
+
+            </com.sookcs.loadingandpullrefreshandtab.widget.SpringView>
+
+        </LinearLayout>
+    </com.sookcs.loadingandpullrefreshandtab.viewtype.ProgressActivity>
+</LinearLayout>

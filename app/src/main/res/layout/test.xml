@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.allen.library.SuperTextView
+        xmlns:stv="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/stvMyOrder"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/common_module_space"
+        stv:sCenterSpaceHeight="5dp"
+        stv:sDividerLineColor="@color/gray_999999"
+        stv:sLeftTopTextColor="@color/common_text_color"
+        stv:sLeftTopTextSize="@dimen/common_text_size"
+        stv:sLeftTopTextString="我的订单"
+        stv:sLeftViewGravity="left_center"
+        stv:sRightIconHeight="20dp"
+        stv:sRightIconRes="@mipmap/icon_jiantou"
+        stv:sRightIconWidth="20dp"
+        stv:sRightTextColor="@color/common_text_color"
+        stv:sRightTextSize="@dimen/common_text_size"
+        stv:sRightTextString="查看更多订单"
+        stv:sRightViewGravity="right_center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/comment_content_margin_top"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tvWaitPay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:text="待支付"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/tvAlreadPay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:text="已支付"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:id="@+id/tvAlreadDead"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:gravity="center"
+            android:text="已失效"
+            android:textSize="13sp"/>
+    </LinearLayout>
+
+</LinearLayout>
