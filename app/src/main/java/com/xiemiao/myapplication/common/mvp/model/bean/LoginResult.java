@@ -1,6 +1,8 @@
 package com.xiemiao.myapplication.common.mvp.model.bean;
 
 
+import com.xiemiao.myapplication.net.BaseResponse;
+
 import java.io.Serializable;
 
 /**

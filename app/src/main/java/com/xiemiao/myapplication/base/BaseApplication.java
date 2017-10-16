@@ -16,12 +16,15 @@ import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.xiemiao.myapplication.common.mvp.model.api.service.CommonService;
 import com.xiemiao.myapplication.common.mvp.model.bean.ConfigInfoResult;
+import com.xiemiao.myapplication.net.CommonObserver;
+import com.xiemiao.myapplication.net.ExceptionHandle;
+import com.xiemiao.myapplication.net.transformer.HttpTransformer;
+import com.xiemiao.myapplication.net.transformer.SchedulersTransformer;
 import com.xiemiao.myapplication.utils.ToastUtil;
+import com.xiemiao.myapplication.utils.UIUtils;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.annotations.NonNull;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
 
 /**
@@ -109,19 +112,19 @@ public class BaseApplication extends Application implements App {
 
     private void requestGetConfigInfo() {
         Observable<ConfigInfoResult> configInfo = mRepositoryManager.obtainRetrofitService(CommonService.class).getConfigInfo();
-        configInfo.subscribeOn(Schedulers.io())
-                .retryWhen(new RetryWithDelay(3, 2))
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<ConfigInfoResult>() {
+        configInfo.retryWhen(new RetryWithDelay(3, 2))
+                .compose(new SchedulersTransformer<ConfigInfoResult>())//线程调度
+                .compose(new HttpTransformer<ConfigInfoResult>())//统一返回数据过滤 异常处理
+                .subscribe(new CommonObserver<ConfigInfoResult>() {
                     @Override
-                    public void accept(ConfigInfoResult configInfoResult) throws Exception {
-                        int result = configInfoResult.getResult();
-                        ToastUtil.showToast(result + "土司");
+                    public void onNext(@NonNull ConfigInfoResult configInfoResult) {
+                        //保存全局配置
+                        UIUtils.putConfigInfoResult(configInfoResult);
                     }
-                }, new Consumer<Throwable>() {
+
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        ToastUtil.showToast(throwable.getMessage());
+                    public void onError(ExceptionHandle.ResponeThrowable e) {
+                        ToastUtil.showToast(e.message);
                     }
                 });
 
