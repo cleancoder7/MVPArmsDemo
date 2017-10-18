@@ -1,4 +1,4 @@
-package com.xiemiao.myapplication.base;
+package com.xiemiao.myapplication.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,6 +10,7 @@ import com.jess.arms.base.delegate.AppDelegate;
 import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.integration.IRepositoryManager;
+import com.jess.arms.utils.ArmsUtils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -18,9 +19,7 @@ import com.xiemiao.myapplication.common.mvp.model.api.service.CommonService;
 import com.xiemiao.myapplication.common.mvp.model.bean.ConfigInfoResult;
 import com.xiemiao.myapplication.net.CommonObserver;
 import com.xiemiao.myapplication.net.ExceptionHandle;
-import com.xiemiao.myapplication.net.transformer.HttpTransformer;
-import com.xiemiao.myapplication.net.transformer.SchedulersTransformer;
-import com.xiemiao.myapplication.utils.ToastUtil;
+import com.xiemiao.myapplication.net.RxUtils;
 import com.xiemiao.myapplication.utils.UIUtils;
 
 import io.reactivex.Observable;
@@ -113,8 +112,8 @@ public class BaseApplication extends Application implements App {
     private void requestGetConfigInfo() {
         Observable<ConfigInfoResult> configInfo = mRepositoryManager.obtainRetrofitService(CommonService.class).getConfigInfo();
         configInfo.retryWhen(new RetryWithDelay(3, 2))
-                .compose(new SchedulersTransformer<ConfigInfoResult>())//线程调度
-                .compose(new HttpTransformer<ConfigInfoResult>())//统一返回数据过滤 异常处理
+                .compose(RxUtils.<ConfigInfoResult>schedulersTransformer())//线程调度
+                .compose(RxUtils.<ConfigInfoResult>httpTransformer())//统一返回数据过滤 异常处理
                 .subscribe(new CommonObserver<ConfigInfoResult>() {
                     @Override
                     public void onNext(@NonNull ConfigInfoResult configInfoResult) {
@@ -124,7 +123,7 @@ public class BaseApplication extends Application implements App {
 
                     @Override
                     public void onError(ExceptionHandle.ResponeThrowable e) {
-                        ToastUtil.showToast(e.message);
+                        ArmsUtils.snackbarText(e.message);
                     }
                 });
 

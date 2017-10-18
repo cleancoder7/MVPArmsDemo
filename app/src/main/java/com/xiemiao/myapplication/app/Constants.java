@@ -1,5 +1,4 @@
-package com.xiemiao.myapplication.conf;
-
+package com.xiemiao.myapplication.app;
 
 import com.xiemiao.myapplication.utils.UIUtils;
 
@@ -8,6 +7,10 @@ import com.xiemiao.myapplication.utils.UIUtils;
  */
 public class Constants {
 
+    /**
+     * 是否DeBug模式
+     */
+    public static final boolean DEBUG = true;
     /**
      * logo图片保存路径
      */

@@ -35,10 +35,10 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.xiemiao.myapplication.base.BaseApplication;
+import com.xiemiao.myapplication.app.Constants;
+import com.xiemiao.myapplication.app.BaseApplication;
 import com.xiemiao.myapplication.common.mvp.model.bean.ConfigInfoResult;
 import com.xiemiao.myapplication.common.mvp.model.bean.LoginResult;
-import com.xiemiao.myapplication.conf.Constants;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

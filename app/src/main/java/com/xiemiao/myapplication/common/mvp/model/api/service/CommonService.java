@@ -1,7 +1,7 @@
 package com.xiemiao.myapplication.common.mvp.model.api.service;
 
 import com.xiemiao.myapplication.common.mvp.model.bean.ConfigInfoResult;
-import com.xiemiao.myapplication.conf.Constants;
+import com.xiemiao.myapplication.app.Constants;
 
 import io.reactivex.Observable;
 import retrofit2.http.POST;
