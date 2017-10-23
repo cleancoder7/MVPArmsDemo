@@ -28,9 +28,9 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.jess.arms.base.delegate.IActivity;
 import com.jess.arms.integration.lifecycle.ActivityLifecycleable;
 import com.jess.arms.mvp.IPresenter;
-import com.orhanobut.logger.Logger;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.xiemiao.myapplication.R;
+import com.xiemiao.myapplication.common.mvp.ui.activity.LoginActivity;
 import com.xiemiao.myapplication.common.mvp.ui.activity.MainActivity;
 
 import java.util.Arrays;
@@ -43,6 +43,7 @@ import butterknife.Unbinder;
 import io.reactivex.subjects.BehaviorSubject;
 import io.reactivex.subjects.Subject;
 import pub.devrel.easypermissions.EasyPermissions;
+import timber.log.Timber;
 
 import static com.jess.arms.utils.ThirdViewUtil.convertAutoView;
 
@@ -144,10 +145,10 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         if (mTopContainerLayout != null) {
             if (this instanceof MainActivity) {
                 ImmersionBar.with(this).titleBar(mTopContainerLayout).init();//是登录界面,状态栏设置为透明
+            } else if (this instanceof LoginActivity) {
+                ImmersionBar.with(this).titleBar(mTopContainerLayout).init();//是主界面,状态栏设置为透明
             }
-            //            else if (this instanceof LoginActivity) {
-            //                ImmersionBar.with(this).titleBar(mTopContainerLayout).init();//是主界面,状态栏设置为透明
-            //            } else if (this instanceof SelectCityActivity) {
+            // else if (this instanceof SelectCityActivity) {
             //                //是选择城市界面,不做处理
             //            } else if (this instanceof SearchEnterpriseListActivity) {
             //                //是搜索企业圈界面,不做处理
@@ -547,7 +548,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         //所要申请的权限
         String[] perms = {Manifest.permission.ACCESS_FINE_LOCATION};
         if (EasyPermissions.hasPermissions(this, perms)) {//检查是否获取该权限
-            Logger.i("已获取权限:" + Arrays.toString(perms));
+            Timber.i("已获取权限:" + Arrays.toString(perms));
         } else {
             //第二个参数是被拒绝后再次申请该权限的解释
             //第三个参数是请求码

@@ -11,10 +11,7 @@ import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.utils.ArmsUtils;
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.FormatStrategy;
-import com.orhanobut.logger.Logger;
-import com.orhanobut.logger.PrettyFormatStrategy;
+import com.xiemiao.myapplication.BuildConfig;
 import com.xiemiao.myapplication.common.mvp.model.api.service.CommonService;
 import com.xiemiao.myapplication.common.mvp.model.bean.ConfigInfoResult;
 import com.xiemiao.myapplication.net.CommonObserver;
@@ -25,6 +22,7 @@ import com.xiemiao.myapplication.utils.UIUtils;
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
+import timber.log.Timber;
 
 /**
  * Title:基类Application,做一些应用启动初始化 <br />
@@ -89,20 +87,10 @@ public class BaseApplication extends Application implements App {
         //网络请求管理类
         mRepositoryManager = getAppComponent().repositoryManager();
 
-        //初始化日志打印相关
-        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
-                .showThreadInfo(false)  // 是否显示日志所在线程
-                .methodCount(2)         // 展示方法层的数量(日志所在方法位置)
-                .methodOffset(7)        // (Optional) Hides internal method calls up to offset. Default 5
-                .tag("Logger")   // 日志TAG
-                .build();
-        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {
-            @Override
-            public boolean isLoggable(int priority, String tag) {
-                //控制日志是否打印
-                return true;
-            }
-        });
+        //Timber日志打印
+        if (BuildConfig.LOG_DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
 
         //请求获取全局配置信息
         requestGetConfigInfo();

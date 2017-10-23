@@ -9,6 +9,7 @@ import com.jess.arms.di.module.ClientModule;
 import com.jess.arms.di.module.GlobalConfigModule;
 import com.jess.arms.http.RequestInterceptor;
 import com.jess.arms.integration.ConfigModule;
+import com.xiemiao.myapplication.BuildConfig;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -27,12 +28,12 @@ import retrofit2.Retrofit;
 public class GlobalConfiguration implements ConfigModule {
     @Override
     public void applyOptions(Context context, GlobalConfigModule.Builder builder) {
+        //打印 Http 请求和响应的信息
+        if (BuildConfig.DEBUG)
+            builder.printHttpLogLevel(RequestInterceptor.Level.ALL);
+
         //使用builder可以为框架配置一些配置信息
         builder.baseurl(Constants.API.HOST_PATH)
-                //打印 Http 请求和响应的信息
-                .printHttpLogLevel(RequestInterceptor.Level.ALL)
-                // 这里提供一个全局处理 Http 请求和响应结果的处理类,可以比客户端提前一步拿到服务器返回的结果,可以做一些操作,比如token超时,重新获取
-                .globalHttpHandler(new GlobalHttpHandlerImpl(context))
                 //这里可以自己自定义配置Retrofit的参数,甚至你可以替换系统配置好的okhttp对象
                 .retrofitConfiguration(new ClientModule.RetrofitConfiguration() {
                     @Override
