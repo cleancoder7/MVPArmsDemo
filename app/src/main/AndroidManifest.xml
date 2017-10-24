@@ -53,14 +53,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".common.mvp.ui.activity.LoginActivity"/>
         <activity android:name=".common.mvp.ui.activity.MainActivity"/>
+        <activity android:name=".common.mvp.ui.activity.RegisteNewUserActivity"/>
+        <activity android:name=".common.mvp.ui.activity.UserAgreementActivity"/>
 
         <!-- arms配置 -->
         <meta-data
             android:name="com.xiemiao.myapplication.app.GlobalConfiguration"
             android:value="ConfigModule"/>
+
     </application>
 
 </manifest>

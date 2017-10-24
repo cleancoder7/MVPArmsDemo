@@ -18,19 +18,22 @@ import com.xiemiao.myapplication.base.BaseActivity;
 import com.xiemiao.myapplication.common.di.component.DaggerLoginComponent;
 import com.xiemiao.myapplication.common.di.module.LoginModule;
 import com.xiemiao.myapplication.common.mvp.contract.LoginContract;
+import com.xiemiao.myapplication.common.mvp.model.bean.eventbean.MessageTag;
 import com.xiemiao.myapplication.common.mvp.presenter.LoginPresenter;
-import com.xiemiao.myapplication.utils.NumMatchUtil;
-import com.xiemiao.myapplication.utils.StringUtils;
-import com.xiemiao.myapplication.utils.UIUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
+import static android.net.http.Headers.REFRESH;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
-
+    /**
+     * 销毁界面的通知
+     */
+    public static final String FINISH = "LoginActivityFINISH";
 
     @BindView(R.id.etPhone)
     EditText etPhone;
@@ -62,8 +65,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         hintTopLayout();//隐藏顶部标题栏
-
     }
 
     @Override
@@ -103,6 +106,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @OnClick({R.id.ivShowPassWord, R.id.tvRegister, R.id.tvForgetPassWord, R.id.btnLogin})
     public void onViewClicked(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.ivShowPassWord://是否展示密码
                 if (isShowPassWord) {
@@ -117,11 +121,14 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 isShowPassWord = !isShowPassWord;
                 break;
             case R.id.btnLogin://登录
-                checkContent();//检测输入框内容
+                String phone = etPhone.getText().toString().trim();
+                String password = etPassWord.getText().toString().trim();
+                // 进行登录操作
+                mPresenter.login(phone, password);
                 break;
             case R.id.tvRegister://注册新用户
-                //                intent = new Intent(getApplicationContext(), RegisteNewUserActivity.class);
-                //                startActivity(intent);
+                intent = new Intent(getApplicationContext(), RegisteNewUserActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tvForgetPassWord://忘记密码
                 //                intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
@@ -130,27 +137,19 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         }
     }
 
-    /**
-     * 检测输入框内容有效性
-     *
-     * @User: xiemiao
-     * @Time: 2017 -05-08
-     * @Date: 13 :19:23
-     */
-    private void checkContent() {
-        String phone = etPhone.getText().toString().trim();
-        String password = etPassWord.getText().toString().trim();
+    /* ================接收EventBus传过来的消息,做出相应的操作================= */
+    // 接受消息的地方(在Android的UI线程中)
+    public void onEventMainThread(MessageTag event) {
+        switch (event.tagStr) {
+            case FINISH:
+                finish();
+                break;
+        }
+    }
 
-        if (StringUtils.isEmpty(phone) || StringUtils.isEmpty(password)) {
-            showMessage("手机号或密码不能为空");
-            return;
-        }
-        boolean validPhoneNumber = NumMatchUtil.isValidPhoneNumber(phone);// 检测手机号有效性
-        if (validPhoneNumber) {
-            // 进行登录操作
-            mPresenter.login(phone, UIUtils.md5(password));
-        } else {
-            showMessage("手机号格式有误");
-        }
+    @Override
+    public void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
     }
 }

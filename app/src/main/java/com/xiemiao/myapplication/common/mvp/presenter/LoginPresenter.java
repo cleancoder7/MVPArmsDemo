@@ -13,6 +13,8 @@ import com.xiemiao.myapplication.common.mvp.ui.activity.MainActivity;
 import com.xiemiao.myapplication.net.CommonObserver;
 import com.xiemiao.myapplication.net.ExceptionHandle;
 import com.xiemiao.myapplication.net.RxUtils;
+import com.xiemiao.myapplication.utils.NumMatchUtil;
+import com.xiemiao.myapplication.utils.StringUtils;
 import com.xiemiao.myapplication.utils.UIUtils;
 
 import javax.inject.Inject;
@@ -60,7 +62,17 @@ public class LoginPresenter extends BasePresenter<LoginContract.Model, LoginCont
      * @Date: 21 :33:28
      */
     public void login(String username, String password) {
-        mModel.login(username, password)
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+            mRootView.showMessage("手机号或密码不能为空");
+            return;
+        }
+        // 检测手机号有效性
+        if (!NumMatchUtil.isValidPhoneNumber(username)) {
+            mRootView.showMessage("手机号格式有误");
+            return;
+        }
+
+        mModel.login(username, UIUtils.md5(password))
                 .compose(RxUtils.<LoginResult>schedulersTransformer())
                 .compose(RxUtils.<LoginResult>httpTransformer())
                 .doOnSubscribe(new Consumer<Disposable>() {
