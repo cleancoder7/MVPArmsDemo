@@ -60,7 +60,9 @@ public class RegisteNewUserPresenter extends BasePresenter<RegisteNewUserContrac
         this.mAppManager = null;
         this.mImageLoader = null;
         this.mApplication = null;
-        timer.cancel();
+        if (timer != null) {
+            timer.cancel();
+        }
     }
 
     /**
